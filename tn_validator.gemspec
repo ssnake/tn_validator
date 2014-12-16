@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name    = 'upu_s10'
+  s.name    = 'tn_validator'
   s.version = '0.1.0'
   s.date    = '2014-12-16'
   s.summary = 'tracking number validator'
