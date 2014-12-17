@@ -17,8 +17,8 @@ TN::Validator.valid?('RD223479072CN) =>
 
 As you can see it returns hash with following keys:
 
-* result true or falce. Specify whether tracking number is correct or not
-* code:
+* result - true or falce. Specify whether tracking number is correct or not
+* code
   * :OK - tracking number is correct
   * :BAD_FORMAT - tracking number has bad format. Doesn't match XX123456789XX
   * :BAD_LENGTH - the length mismatches 13 letters
@@ -29,4 +29,4 @@ As you can see it returns hash with following keys:
 Links
 =====
 
-[wiki] (http://en.wikipedia.org/wiki/S10_(UPU_standard))
+[S10_(UPU_standard)] (http://en.wikipedia.org/wiki/S10_(UPU_standard))
