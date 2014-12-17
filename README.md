@@ -8,7 +8,8 @@ It can validate post tracking number, e.g. RD223479072CN
 Usage
 =====
 
-TN::Validator.valid?('RD223479072CN) =>
+TN::Validator.valid?('RD223479072CN') =>
+
 {
   result: true,
   code: :OK,
