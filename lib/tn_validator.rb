@@ -1,16 +1,13 @@
-module UPU_S10
+module TN
 
 	class Validator
-		OK = 0
-		BAD_LENGTH = 1
-		BAD_FORMAT = 2
-		BAD_CRC = 3
+		
 		MASK = /(?<prefix>[a-z]{2})(?<number>\d{8})(?<crc>\d)(?<suffix>[a-z]{2})/i
 		class << self
 
 			def valid? number
 				r = check number
-				{ result: r == OK, code: r, msg: Message.msg(r)}
+				{ result: r == :OK, code: r, msg: Message.msg(r)}
 
 			end
 			def calc_crc number
@@ -44,11 +41,11 @@ module UPU_S10
 		    
 		    end
 			def check number
-				return BAD_LENGTH unless check_length number
-				return BAD_FORMAT unless check_format number
-				return BAD_CRC unless check_crc number
+				return :BAD_LENGTH unless check_length number
+				return :BAD_FORMAT unless check_format number
+				return :BAD_CRC unless check_crc number
 
-				return OK
+				return :OK
 				
 			end		    
 		end
@@ -58,13 +55,13 @@ module UPU_S10
 		class << self
 			def msg code
 				case code
-					when Validator::OK
+					when :OK
 						'ok'
-					when Validator::BAD_FORMAT
+					when :BAD_FORMAT
 						'Number format is bad. It must be XX123456789XX' 
-					when Validator::BAD_LENGTH
+					when :BAD_LENGTH
 						'Number length is wrong. It must be 13 letters'
-					when Validator::BAD_CRC
+					when :BAD_CRC
 						'Incorrect crc number'
 					else
 						''
